@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Page</title>
+</head>
+
+<body>
+    <div>
+        <h1>Welcome to My Page</h1>
+        <p>This is a simple HTML document.</p>
+        <div>
+            <!-- Inline elements: 줄바꿈 안넣어주면 한 줄로 생성 -->
+            <span>This is a span.</span>
+            <b>This is a b tag.</b>
+            <em>This is an emphasized text.</em>
+        </div>
+        <div>
+            line 1
+            <br />
+            line 2
+            <br />
+            line 3
+        </div>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+        <ol>
+            <li>First item</li>
+            <li>Second item</li>
+            <li>Third item</li>
+        </ol>
+    </div>
+    <div>
+        <a href="https://www.naver.com">NAVER</a>
+        <a href="https://www.naver.com" target="_blank">NAVER (New Tab)</a>
+    </div>
+    <div>
+        <img src="./images/due.jpg" alt="Placeholder Image" />
+    </div>
+    <div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>AGE</th>
+                    <th>JOB</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>30</td>
+                    <td>Developer</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>25</td>
+                    <td>Designer</td>
+                </tr>
+                <tr>
+                    <td>Mike Johnson</td>
+                    <td>35</td>
+                    <td>Manager</td>
+                </tr>
+        </table>
+</body>
+
+<form action="/submit" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+
+    <label for="job">Select</label>
+    <select id="job" name="job">
+        <option value="frontend">Frontend</option>
+        <option value="backend">Backend</option>
+    </select>
+
+    <label for="note">note</label>
+    <textarea id="note" name="note" rows="4" cols="50"></textarea>
+
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+    <button type="button" onclick="alert('Button clicked!')">Alert</button>
+</form>
+
+</html>
