@@ -1,0 +1,191 @@
+/* === 기본 설정 === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* === 공통 클래스 === */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #008cba;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0072a0;
+}
+
+.card {
+    background-color: white;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.card h3 {
+    margin-bottom: 8px;
+}
+
+/* === Header & Navigation === */
+header {
+    background-color: #004080;
+    color: white;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav li a {
+    color: white;
+    font-weight: bold;
+}
+
+.nav li a:hover {
+    text-decoration: underline;
+}
+
+/* === 자유롭게 작성 === */
+.hero {
+    background-image: url('./images/taipei.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px;
+    color: white;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+/* === 추천 여행지 === */
+.recommendations {
+    padding: 40px 0;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* === 공지사항 Aside === */
+.notice {
+    background-color: #fffbe6;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.notice ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+/* === Footer === */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* === Product 페이지 === */
+.product-detail {
+    padding: 40px 0;
+}
+
+.schedule {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.schedule th,
+.schedule td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+.inclusions {
+    margin-top: 30px;
+}
+
+.inclusions ul {
+    list-style: square;
+    padding-left: 20px;
+}
+
+/* === Form 페이지 === */
+.reservation-form {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.form-group.checkbox {
+    flex-direction: row;
+    align-items: center;
+}
+
+.form-group.checkbox input {
+    margin-right: 8px;
+}
