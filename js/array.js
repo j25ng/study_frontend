@@ -54,31 +54,62 @@
 // const realSortArray = nonSortArray.sort((a, b) => a - b); // sort는 배열을 정렬합니다. 기본적으로 문자열로 정렬되므로 숫자로 정렬하려면 비교 함수를 사용해야 합니다.
 // console.log(realSortArray);
 
-const array1 = [];
-const array2 = [];
+// const array1 = [];
+// const array2 = [];
 
-for (let i = 0; i <= 100; i++) {
-    array1.push(i);
+// for (let i = 0; i <= 100; i++) {
+//     array1.push(i);
+// }
+
+// for (let i = 101; i <= 200; i++) {
+//     array2.push(i);
+// }
+
+// console.log(array1);
+// console.log(array2);
+
+// const evenArray = array1.concat(array2).filter((e) => e % 2 === 0); // 짝수만 필터링
+// console.log(evenArray);
+
+// console.log(evenArray.sort((a, b) => b - a)); // 내림차순 정렬
+
+// console.log(evenArray.reduce((acc, cur) => acc + cur, 0)); // 모든 요소의 합계
+
+// const oneComboArray = array1
+//     .concat(array2)
+//     .filter((e) => e % 2 === 0)
+//     .sort((a, b) => b - a)
+//     .reduce((acc, cur) => acc + cur, 0);
+
+// console.log(oneComboArray); // 짝수만 필터링, 내림차순 정렬, 합계
+
+// for (let i = 0; i < array.length; i++) {
+//     console.log(array[i]);
+// }
+
+// for (const data of array) {
+//     console.log(data);
+// }
+
+// humansArray = ['홍길동', '김철수', '김지민'];
+
+// humansArray.forEach((data, index) => { // forEach는 배열의 각 요소에 대해 함수를 실행합니다. (data, index) => { ... }는 콜백 함수입니다. data는 현재 요소, index는 현재 요소의 인덱스를 나타냅니다.
+//     console.log(data, index);
+// });
+
+// const newArray = array.map((data, index) => { // map은 배열의 각 요소를 변환하여 새로운 배열을 만듭니다.
+//     return data * 2; // 각 요소를 2배로 변환
+// });
+
+// console.log(newArray); // [2, 4, 6, 8, 10]
+
+const scores = [85, 90, 50, 58, 92, 82, 61, 45, 70, 74];
+const newScores = [];
+
+for (const score of scores) {
+    if (score >= 60) {
+        newScores.push(score);
+    }
 }
 
-for (let i = 101; i <= 200; i++) {
-    array2.push(i);
-}
-
-console.log(array1);
-console.log(array2);
-
-const evenArray = array1.concat(array2).filter((e) => e % 2 === 0); // 짝수만 필터링
-console.log(evenArray);
-
-console.log(evenArray.sort((a, b) => b - a)); // 내림차순 정렬
-
-console.log(evenArray.reduce((acc, cur) => acc + cur, 0)); // 모든 요소의 합계
-
-const oneComboArray = array1
-    .concat(array2)
-    .filter((e) => e % 2 === 0)
-    .sort((a, b) => b - a)
-    .reduce((acc, cur) => acc + cur, 0);
-
-console.log(oneComboArray); // 짝수만 필터링, 내림차순 정렬, 합계
+console.log(newScores.reduce((acc, cur) => acc + cur, 0) / newScores.length);
