@@ -1,0 +1,54 @@
+body {
+  font-family: sans-serif;
+  background: lightgray;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.calendar {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 320px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#monthYear {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th,
+td {
+  padding: 10px;
+  height: 40px;
+}
+
+td {
+  border-radius: 4px;
+}
+
+td:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+/* 오늘 날짜 */
+.today {
+  color: darkorange;
+  font-weight: bold;
+}
