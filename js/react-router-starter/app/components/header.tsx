@@ -1,11 +1,31 @@
 import { Link } from 'react-router';
 
-// component 이름은 대문자 필수
 const Header = () => {
   return (
-    <div className="flex h-[100px] items-center justify-center bg-[lightblue]">
-      <Link to="/">Header</Link>
-    </div>
+    <header className="bg-[#004080] py-[20px] text-white">
+      <div className="mx-auto my-[50px] w-[90%] max-w-[1200px]">
+        <h1 className="mb-[10px] text-[30px] font-bold">여행을 떠나요</h1>
+        <nav>
+          <ul className="flex list-none gap-[20px]">
+            <li>
+              <Link to="/travel" className="font-bold">
+                홈
+              </Link>
+            </li>
+            <li>
+              <Link to="/product" className="font-bold">
+                여행 상품
+              </Link>
+            </li>
+            <li>
+              <Link to="/reservation" className="font-bold">
+                예약/문의
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
 };
 
