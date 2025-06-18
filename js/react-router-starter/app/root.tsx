@@ -15,6 +15,7 @@ import { getLanguageSession, getThemeSession } from './.server/services/session.
 import type { Route } from './+types/root';
 import Footer from './components/footer';
 import Header from './components/header';
+import TestHeader from './components/test-header';
 import { LanguageProvider } from './hooks/use-language';
 import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from './hooks/use-theme';
 
@@ -23,7 +24,9 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     getLanguageSession(request),
     getThemeSession(request),
   ]);
-  return { lang: getLanguage(), ssrTheme: getTheme() };
+  const url = new URL(request.url);
+  const isTest = url.pathname.includes('quest');
+  return { lang: getLanguage(), ssrTheme: getTheme(), isTest };
 };
 
 export const links: LinksFunction = () => {
@@ -41,7 +44,7 @@ export const links: LinksFunction = () => {
   ];
 };
 
-export const App = ({ lang, ssrTheme }: Route.ComponentProps['loaderData']) => {
+export const App = ({ lang, ssrTheme, isTest }: Route.ComponentProps['loaderData']) => {
   const [theme] = useTheme();
 
   return (
@@ -54,18 +57,19 @@ export const App = ({ lang, ssrTheme }: Route.ComponentProps['loaderData']) => {
         <Links />
       </head>
       <body>
-        <Header />
+        {isTest ? <TestHeader /> : <Header />}
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        <Footer />
+        {!isTest && <Footer />}
       </body>
     </html>
   );
 };
 
 export default function AppWithProviders({ loaderData }: Route.ComponentProps) {
-  const { lang, ssrTheme } = loaderData;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { lang, ssrTheme, isTest } = loaderData;
 
   return (
     <LanguageProvider specifiedLanguage={lang} languageAction="/api/language">

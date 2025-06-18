@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useEffect, useState } from 'react';
 
 import CountButton from '../../components/countButton';
@@ -5,10 +6,18 @@ import CountButton from '../../components/countButton';
 const Count = () => {
   const [count, setCount] = useState(0);
 
+  // const handleCountPlus = () => {
+  //   setCount((currentCount) => {
+  //     return currentCount + 1;
+  //   });
+  // };
+
   const handleCountPlus = () => {
-    setCount((currentCount) => {
-      return currentCount + 1;
-    });
+    setTimeout(() => {
+      setCount((currentCount) => {
+        return currentCount + 1;
+      });
+    }, 1000);
   };
 
   const handleCountMinus = () => {
@@ -17,10 +26,22 @@ const Count = () => {
     });
   };
 
-  useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log('Change Count: ', count);
-  }, [count]);
+  // useEffect(() => {
+  //   // eslint-disable-next-line no-console
+  //   console.log('Change Count: ', count);
+  // }, [count]);
+
+  // 설정된 시간 마다 실행하는 것 setInterval
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     handleCountPlus();
+  //   }, 1000);
+
+  //   return () => {
+  //     clearInterval(timer);
+  //     console.log('타이머 정리');
+  //   };
+  // }, []);
 
   return (
     <div className="flex h-[500px] flex-col items-center justify-center gap-[20px] bg-[lightgrey]">
