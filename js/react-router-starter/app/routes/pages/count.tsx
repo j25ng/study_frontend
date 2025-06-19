@@ -2,9 +2,10 @@
 import { useEffect, useState } from 'react';
 
 import CountButton from '../../components/countButton';
+import useCounter from '../../hooks/use-counter';
 
 const Count = () => {
-  const [count, setCount] = useState(0);
+  //const [count, setCount] = useState(0);
 
   // const handleCountPlus = () => {
   //   setCount((currentCount) => {
@@ -12,19 +13,21 @@ const Count = () => {
   //   });
   // };
 
-  const handleCountPlus = () => {
-    setTimeout(() => {
-      setCount((currentCount) => {
-        return currentCount + 1;
-      });
-    }, 1000);
-  };
+  const { count, increase, decrease, reset } = useCounter(0);
 
-  const handleCountMinus = () => {
-    setCount((currentCount) => {
-      return currentCount - 1;
-    });
-  };
+  // const handleCountPlus = () => {
+  //   setTimeout(() => {
+  //     setCount((currentCount) => {
+  //       return currentCount + 1;
+  //     });
+  //   }, 1000);
+  // };
+
+  // const handleCountMinus = () => {
+  //   setCount((currentCount) => {
+  //     return currentCount - 1;
+  //   });
+  // };
 
   // useEffect(() => {
   //   // eslint-disable-next-line no-console
@@ -62,7 +65,7 @@ const Count = () => {
       >
         -1 button
       </button> */}
-      <CountButton
+      {/* <CountButton
         symbol="+1"
         onClick={handleCountPlus}
         className="cursor-pointer bg-[lightblue] p-[20px] hover:bg-[yellow]"
@@ -70,6 +73,22 @@ const Count = () => {
       <CountButton
         symbol="-1"
         onClick={handleCountMinus}
+        className="cursor-pointer bg-[lightblue] p-[20px] hover:bg-[yellow]"
+      /> */}
+
+      <CountButton
+        symbol="+1"
+        onClick={increase}
+        className="cursor-pointer bg-[lightblue] p-[20px] hover:bg-[yellow]"
+      />
+      <CountButton
+        symbol="-1"
+        onClick={decrease}
+        className="cursor-pointer bg-[lightblue] p-[20px] hover:bg-[yellow]"
+      />
+      <CountButton
+        symbol="+1"
+        onClick={reset}
         className="cursor-pointer bg-[lightblue] p-[20px] hover:bg-[yellow]"
       />
     </div>

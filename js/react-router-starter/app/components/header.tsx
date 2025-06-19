@@ -8,7 +8,7 @@ const Header = () => {
         <nav>
           <ul className="flex list-none gap-[20px]">
             <li>
-              <Link to="/travel" className="font-bold">
+              <Link to="/" className="font-bold">
                 홈
               </Link>
             </li>

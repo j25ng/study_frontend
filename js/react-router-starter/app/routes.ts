@@ -15,6 +15,14 @@ export default [
   route('quest3', 'routes/pages/test/quest3.tsx'),
   route('quest4', 'routes/pages/test/quest4.tsx'),
   route('quest5', 'routes/pages/test/quest5.tsx'),
+
+  route('useMemo', 'routes/pages/useMemo.tsx'),
+  route('customHookWithCount', 'routes/pages/custom-hook-with-count.tsx'),
+  route('fetchAPI', 'routes/pages/fetch-api.tsx'),
+  route('ssrFetchApi', 'routes/pages/ssr-fetch-api.tsx'),
+  route('postApi', 'routes/pages/post-api.tsx'),
+  route('ssrPostApi', 'routes/pages/ssr-post-api.tsx'),
+  route('fetchApiTest', 'routes/pages/fetch-api-test.tsx'),
   // * APIs
   ...prefix('api', [
     route('theme', 'routes/apis/theme.ts'),

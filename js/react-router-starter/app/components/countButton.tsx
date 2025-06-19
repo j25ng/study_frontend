@@ -1,7 +1,7 @@
 interface CountButtonProps {
   symbol: string;
   onClick: () => void;
-  className: string;
+  className?: string;
 }
 
 const CountButton = ({ symbol, onClick, className }: CountButtonProps) => {
