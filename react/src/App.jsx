@@ -1,51 +1,28 @@
 import { useState } from 'react';
-import { twMerge } from 'tailwind-merge';
+import Modal from './Modal';
 
 const App = () => {
-  const [number, setNumber] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
-  // const handleUp = () => {
-  //   setNumber((p) => p + 1);
-  // };
-
-  // const handleDown = () => {
-  //   setNumber((p) => p - 1);
-  // };
-
-  const handleCount = (action) => {
-    if (action === 'UP') {
-      setNumber((p) => p + 1);
-    }
-    if (action === 'DOWN') {
-      setNumber((p) => p - 1);
-    }
+  const handleModalOpen = () => {
+    setIsOpen((p) => !p);
   };
 
   return (
-    <div className="p-4 flex justify-center items-center gap-2">
-      {/* <button onClick={handleDown}>-</button> */}
-      <button
-        className="w-16 p-2 rounded-sm bg-indigo-400 hover:bg-indigo-600"
-        onClick={() => handleCount('DOWN')}
-      >
-        -
-      </button>
-      {/* <button onClick={handleUp}>+</button> */}
-      <p
-        className={twMerge(
-          'w-32 text-center p-4 bg-gray-100 rounded-sm font-mono',
-          number > 10 && 'text-red-400',
-          number < 0 && 'text-green-400'
-        )}
-      >
-        {number}
+    <div className="relative">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, minima?
+        Adipisci sunt exercitationem tenetur accusantium earum ducimus corporis
+        deleniti quasi, vel minima reprehenderit hic praesentium ut eos officiis
+        ex eligendi?
       </p>
       <button
-        className="w-16 p-2 rounded-sm bg-indigo-400 hover:bg-indigo-600"
-        onClick={() => handleCount('UP')}
+        onClick={handleModalOpen}
+        className="mt-4 p-2 rounded-sm bg-gray-100 hover:bg-gray-300 relative z-10"
       >
-        +
+        MODAL OPEN
       </button>
+      <Modal isOpen={isOpen} onClose={handleModalOpen} />
     </div>
   );
 };
