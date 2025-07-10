@@ -28,6 +28,16 @@ const Login = () => {
     setUserData(...data);
   };
 
+  const handleKakaoLogin = async () => {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: "kakao",
+    });
+    if (error) {
+      return alert("로그인 실패", error);
+    }
+    console.log(data);
+  };
+
   return (
     <div>
       <div className="flex flex-col mt-3">
@@ -99,9 +109,15 @@ const Login = () => {
         <button
           onClick={handleLogin}
           id="passkeyLogin"
-          className="border-3 m-2 rounded-xl h-12 bg-gray-400 text-white"
+          className="m-2 rounded-xl h-12 bg-gray-400 text-white"
         >
           로그인
+        </button>
+        <button
+          onClick={handleKakaoLogin}
+          className="m-2 rounded-xl h-12 bg-yellow-400 text-black"
+        >
+          카카오 로그인
         </button>
         <div className="flex items-center m-2">
           <div className="flex-grow h-px bg-gray-300" />
