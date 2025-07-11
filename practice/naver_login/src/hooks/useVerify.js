@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { supabase } from "../supabaseClient";
+import { userStore } from "../const/store";
 
 export const useVerify = ({ onSuccess, onFailure }) => {
+  const { initUser } = userStore();
+
   useEffect(() => {
     const checkUser = async () => {
       const { data, error } = await supabase.auth.getUser();
@@ -13,6 +16,13 @@ export const useVerify = ({ onSuccess, onFailure }) => {
         onFailure();
         return;
       }
+
+      const payload = {
+        email: data?.user?.email || "익명",
+        id: data?.user?.id || "오류",
+      };
+
+      initUser(payload);
       onSuccess();
     };
     checkUser();
