@@ -28,7 +28,12 @@ const PrivateRoute = ({ children }) => {
     onFailure: () => setVerify(false),
   });
 
-  if (!verify) return <div>Loading...</div>;
+  if (!verify)
+    return (
+      <div className="m-auto w-screen h-screen flex items-center justify-center">
+        <div className="animate-spin w-24 h-24 border-2 border-t-0 border-l-0 border-cyan-800 rounded-full"></div>
+      </div>
+    );
 
   return <div>{children}</div>;
 };

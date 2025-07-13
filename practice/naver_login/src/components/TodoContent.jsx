@@ -1,37 +1,31 @@
-import React from "react";
 import { todoStore } from "../const/store";
-// import { supabase } from "../supabaseClient";
+import dayjs from "dayjs";
 
 const TodoContent = () => {
   const { todo } = todoStore();
 
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
-  //     const payload = {
-  //       id: user.id,
-  //       title: titleRef.current.value,
-  //       content: contentRef.current.value,
-  //     };
-  //     const { error } = await supabase.from("todo").insert({
-  //       user_id: payload.id,
-  //       title: payload.title,
-  //       content: payload.content,
-  //     });
-
-  //     if (error) {
-  //       alert("투두 추가 실패", error);
-  //     }
-  //     await fetchTodos();
-  //   };
-
   return (
-    <div className="p-4">
+    <div>
       {todo.map((item) => (
-        <div key={item.id}>
-          <p className={item.marked ? "text-green-800" : "text-red-800"}>
-            {item.title}
-          </p>
-          <p>{item.content}</p>
+        <div
+          className={`border-y-3 rounded ${
+            item.marked ? "border-emerald-500" : "border-pink-500"
+          } m-1`}
+          key={item.id}
+        >
+          <div className="gap-1">
+            <div
+              className={`flex justify-between items-center ${
+                item.marked ? "bg-emerald-100" : "bg-pink-100"
+              } p-1`}
+            >
+              <p className="font-bold">{item.title}</p>
+              <p className="bg-stone-300 rounded text-xs font-bold p-1">
+                {dayjs(item.created_at).format("YYYY-MM-DD")}
+              </p>
+            </div>
+            <p className="p-1">{item.content}</p>
+          </div>
         </div>
       ))}
     </div>
