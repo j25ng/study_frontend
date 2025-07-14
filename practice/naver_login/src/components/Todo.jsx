@@ -2,11 +2,12 @@ import { useNavigate } from "react-router-dom";
 import { todoStore, userStore } from "../const/store";
 import { supabase } from "../supabaseClient";
 import TodoContent from "./TodoContent";
-import TodoInsert from "./TodoInsert";
+import TodoInsertModal from "./TodoInsertModal";
 
 const Todo = () => {
   const { user, clearUser } = userStore();
   const { clearTodo } = todoStore();
+
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -36,7 +37,16 @@ const Todo = () => {
       </header>
       <main className="flex-grow pb-20">
         <TodoContent />
-        <TodoInsert />
+        {/* <TodoInsert /> */}
+        {/* <button
+          onClick={() => {
+            setIsOpen((prev) => !prev);
+          }}
+          className="cursor-pointer absolute right-8 bottom-8 rounded-full bg-indigo-300 w-10 h-10 font-bold hover:bg-indigo-400"
+        >
+          +
+        </button> */}
+        <TodoInsertModal />
       </main>
     </div>
   );
