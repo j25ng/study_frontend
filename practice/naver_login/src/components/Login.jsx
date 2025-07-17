@@ -38,6 +38,12 @@ const Login = () => {
     console.log(data);
   };
 
+  const handleHello = async () => {
+    const data = await fetch("http://localhost:3000/hello");
+    const text = await data.text();
+    alert(text);
+  };
+
   return (
     <div>
       <div className="flex flex-col mt-3">
@@ -128,6 +134,7 @@ const Login = () => {
         </div>
         <button
           id="passkeyLogin"
+          onClick={handleHello}
           className="border-1 m-2 rounded-xl h-12 border-green-600 text-green-600 font-bold"
         >
           패스키 로그인
