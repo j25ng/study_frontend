@@ -1,4 +1,4 @@
-import { Controller, Dependencies, Get } from '@nestjs/common';
+import { Controller, Dependencies, Get, Post, Body } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -8,13 +8,13 @@ export class AppController {
     this.appService = appService;
   }
 
-  @Get('/hello')
-  getHello() {
-    return this.appService.getHello();
+  @Get('/account')
+  async getAccount() {
+    return await this.appService.getAccount();
   }
 
-  @Get('/hi')
-  getHi() {
-    return this.appService.getHi();
+  @Post('/transfer')
+  async transfer(req) {
+    return await this.appService.transfer(req.body);
   }
 }

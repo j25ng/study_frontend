@@ -3,6 +3,10 @@ import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class PrismaService extends PrismaClient {
+  constructor() {
+    super();
+  }
+
   async onModuleInit() {
     await this.$connect();
   }
@@ -11,5 +15,3 @@ export class PrismaService extends PrismaClient {
     await this.$disconnect();
   }
 }
-
-module.exports = PrismaService;

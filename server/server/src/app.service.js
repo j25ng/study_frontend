@@ -1,12 +1,18 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class AppService {
-  getHello() {
-    return 'Hello World!';
+  constructor() {
+    this.prisma = new PrismaClient();
   }
 
-  getHi() {
-    return '안뇽!';
+  async getAccount() {
+    const accounts = await this.prisma.account.findMany();
+    return accounts;
+  }
+
+  async transfer(req) {
+    console.log(req.body);
   }
 }
